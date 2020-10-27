@@ -1,0 +1,37 @@
+# This script will fix start tiles for apps that overwrite on updates.
+
+# To add a new application, duplicate the template line in the "apps" array.
+
+# Elevate if needed
+if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))  
+{  
+  Write-Output "This must be run from an elevated terminal, please re-reun as admin"
+  Write-Output "Press any key to continue..."
+  $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+  exit
+}
+
+$apps = @(
+    # Template Line below, duplicate it and uncomment to add a new application
+    # [pscustomobject]@{shortcut='<replace me with the path to the shortcut, no double quotes>';icon='<replace me with the path to the icon, no double quotes>'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk';icon='C:\Users\smuise\Pictures\App Icons\chrome_0000.png'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk';icon='C:\Users\smuise\Pictures\App Icons\msedge_0000.png'}
+)
+
+foreach ($app in $apps) {
+    $shortcut = $app[0].shortcut
+    $icon = $app[0].icon
+
+    $sh = New-Object -COM WScript.Shell
+    $shortcutTarget = $sh.CreateShortcut($shortcut)
+    $targetPath = $shortcutTarget.TargetPath
+
+    $filename = Split-Path $targetPath -leaf
+    $folderPath = Split-Path -Path $targetPath
+    $filenameExtensionless = $filename.Replace('.exe','') #remove the extension of the file so the exe's filename can be used to rename the xml file
+    
+    Copy-Item -Path $icon -Destination "$($folderPath)\app.png"
+    Copy-Item -Path "C:\Users\smuise\Code\appexe.VisualElementsManifest.xml" -Destination "$($folderPath)\$($filenameExtensionless).VisualElementsManifest.xml"
+
+    (Get-ChildItem $shortcut).lastwritetime = get-date # update the updated date/time of the shortcut, if this isn't done the tile will never change in the start menu.
+}
