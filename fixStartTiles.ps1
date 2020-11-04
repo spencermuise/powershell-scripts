@@ -16,6 +16,7 @@ $apps = @(
     # [pscustomobject]@{shortcut='<replace me with the path to the shortcut, no double quotes>';icon='<replace me with the path to the icon, no double quotes>'}
     [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk';icon='C:\Users\smuise\Pictures\App Icons\chrome_0000.png'}
     [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk';icon='C:\Users\smuise\Pictures\App Icons\msedge_0000.png'}
+    [pscustomobject]@{shortcut='C:\Users\smuise\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk';icon='C:\Users\smuise\Pictures\App Icons\Code_0000.png'}
 )
 
 foreach ($app in $apps) {
