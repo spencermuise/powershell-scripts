@@ -1,9 +1,10 @@
-﻿# Elevate if needed
+﻿# Check for elevation
 if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))  
 {  
-  $arguments = "& '" +$myinvocation.mycommand.definition + "'"
-  Start-Process powershell -Verb runAs -ArgumentList $arguments
-  Break
+  Write-Output "This must be run from an elevated terminal, please re-reun as admin"
+  Write-Output "Press any key to continue..."
+  $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+  exit
 }
 
 $shortcutPath = Read-Host -Prompt 'Enter path to the start menu shortcut'
