@@ -14,13 +14,12 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 $apps = @(
     # Template Line below, duplicate it and uncomment to add a new application
     # [pscustomobject]@{shortcut='<replace me with the path to the shortcut, no double quotes>';icon='<replace me with the path to the icon, no double quotes>'}
-    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EA\EA Desktop.lnk';icon='C:\Users\smuise\Pictures\App Icons\Blagoicons-Style EA Desktop Icon.png'}
-    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk';icon='C:\Users\smuise\Pictures\App Icons\google_chrome___icon_by_blagoicons_dda0jjx.png'}
-    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk';icon='C:\Users\smuise\Pictures\App Icons\Blagoicons-Style Edge Icon.png'}
-    [pscustomobject]@{shortcut='C:\Users\smuise\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk';icon='C:\Users\smuise\Pictures\App Icons\Blagoicons-Style Code Icon.png'}
-    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Firefox.lnk';icon='C:\Users\smuise\Pictures\App Icons\mozilla_firefox___icon_by_blagoicons_dda0jnl.png'}
-    [pscustomobject]@{shortcut='C:\Users\smuise\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Spotify.lnk';icon='C:\Users\smuise\Pictures\App Icons\spotify___icon_by_blagoicons_dd9ygxa.png'}
-    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Epic Games Launcher.lnk';icon='C:\Users\smuise\Pictures\App Icons\Blagoicons-Style Epic Icon.png'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EA\EA Desktop.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\Blagoicons-Style EA Desktop Icon.png'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\Blagoicons-Style Edge Icon.png'}
+    [pscustomobject]@{shortcut='C:\Users\smuise\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\Blagoicons-Style CodeIcon.png'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Firefox.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\mozilla_firefox___icon_by_blagoicons_dda0jnl.png'}
+    [pscustomobject]@{shortcut='C:\Users\smuise\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Spotify.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\spotify___icon_by_blagoicons_dd9ygxa.png'}
+    [pscustomobject]@{shortcut='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Epic Games Launcher.lnk';icon='C:\Users\smuise\OneDrive\Pictures\App Icons\Blagoicons-Style Epic Icon.png'}
 )
 
 foreach ($app in $apps) {
